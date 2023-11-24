@@ -2,27 +2,40 @@ import React from "react";
 
 class MyComponent extends React.Component {
   state = {
-    name: "Eric",
+    name: "HarryPham",
     address: "Hoi Dan IT",
     age: 26,
   };
 
-  handleClick(event) {
+  handleClick = (event) => {
     console.log(">> click me my button");
-    console.log("My name is", this.state.name);
-  }
+    // console.log(" random ", Math.floor(Math.random() * 100 + 1));
+    this.setState({
+      name: "Eric",
+      age: Math.floor(Math.random() * 100 + 1),
+    });
+
+    // this.setState({
+    //   age: Math.floor(Math.random() * 100 + 1),
+    // });
+  };
 
   handleOnMouseOver(event) {
-    console.log(event.pageX);
+    // console.log(event.pageX);
   }
   // JSX
   render() {
     return (
       <div>
-        My name is {this.state.name}
-        and I'm from {this.state.address}
+        My name is {this.state.name} and I'm {this.state.age}
         <button onMouseOver={this.handleOnMouseOver}>Hover me</button>
-        <button onClick={this.handleClick}>Click me</button>
+        <button
+          onClick={(event) => {
+            this.handleClick(event);
+          }}
+        >
+          Click me
+        </button>
       </div>
     );
   }
