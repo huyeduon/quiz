@@ -11,8 +11,6 @@ class DisplayInfor extends React.Component {
   render() {
     // destructuring array/object
     const { listUsers } = this.props;
-    console.log(listUsers);
-
     // const listUsers = this.props.listUsers
     // props => property
 
