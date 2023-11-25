@@ -2,7 +2,7 @@ import React from "react";
 
 class UserInfor extends React.Component {
   state = {
-    name: "HarryPham",
+    name: "Eric",
     address: "Hoi Dan IT",
     age: 26,
   };
@@ -21,7 +21,6 @@ class UserInfor extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
   };
 
   render() {
