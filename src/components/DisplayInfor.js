@@ -15,7 +15,7 @@ class DisplayInfor extends React.Component {
     // const listUsers = this.props.listUsers
     return (
       <div className="display-infor-container">
-        <img src={logo} />
+        <img src={logo} alt="logo" />
         <div>
           <span
             onClick={() => {
@@ -28,7 +28,7 @@ class DisplayInfor extends React.Component {
           </span>
         </div>
         {this.state.isShowListUser && (
-          <div>
+          <>
             {listUsers.map(user => {
               console.log('check map user', user);
               return (
@@ -41,7 +41,7 @@ class DisplayInfor extends React.Component {
                 </div>
               );
             })}
-          </div>
+          </>
         )}
       </div>
     );

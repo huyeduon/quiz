@@ -1,11 +1,11 @@
-import MyComponent from "./components/MyComponent";
-import React from "react";
-import "./App.scss";
+import MyComponent from './components/MyComponent';
+import React from 'react';
+import './App.scss';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="app-container">
         Hello world
         <MyComponent></MyComponent>
       </div>
