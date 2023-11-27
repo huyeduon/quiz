@@ -1,5 +1,6 @@
-import React from "react";
-
+import React from 'react';
+import './DisplayInfor.scss';
+import logo from './../logo.svg';
 class DisplayInfor extends React.Component {
   state = {
     isShowListUser: true,
@@ -12,10 +13,9 @@ class DisplayInfor extends React.Component {
     // destructuring array/object
     const { listUsers } = this.props;
     // const listUsers = this.props.listUsers
-    // props => property
-
     return (
-      <div>
+      <div className="display-infor-container">
+        <img src={logo} />
         <div>
           <span
             onClick={() => {
@@ -23,17 +23,19 @@ class DisplayInfor extends React.Component {
             }}
           >
             {this.state.isShowListUser === true
-              ? "Hide list users"
-              : "Show list users"}
+              ? 'Hide list users'
+              : 'Show list users'}
           </span>
         </div>
         {this.state.isShowListUser && (
           <div>
-            {listUsers.map((user) => {
-              console.log("check map user", user);
+            {listUsers.map(user => {
+              console.log('check map user', user);
               return (
-                <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
-                  <div>My name's {user.name}</div>
+                <div key={user.id} className={+user.age > 18 ? 'green' : 'red'}>
+                  <div style={{ color: 'purple', paddingTop: '50px' }}>
+                    My name's {user.name}
+                  </div>
                   <div>My age's {user.age}</div>
                   <hr />
                 </div>
