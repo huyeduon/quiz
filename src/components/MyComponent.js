@@ -1,19 +1,27 @@
-import React from 'react';
-import AddUserInfor from './AddUserInfor';
-import DisplayInfor from './DisplayInfor';
+import React from "react";
+import AddUserInfor from "./AddUserInfor";
+import DisplayInfor from "./DisplayInfor";
 
 class MyComponent extends React.Component {
   state = {
     listUsers: [
-      { id: 1, name: 'Hoi Dan IT', age: '16' },
-      { id: 2, name: 'Eric', age: '68' },
-      { id: 3, name: 'Huyen', age: '34' },
+      { id: 1, name: "Hoi Dan IT", age: "16" },
+      { id: 2, name: "Eric", age: "68" },
+      { id: 3, name: "Huyen", age: "34" },
     ],
   };
 
-  handleAddNewUser = userObj => {
+  handleAddNewUser = (userObj) => {
     this.setState({
       listUsers: [userObj, ...this.state.listUsers],
+    });
+  };
+
+  handleDeleteUser = (userId) => {
+    let listUsersClone = [...this.state.listUsers];
+    listUsersClone = listUsersClone.filter((item) => item.id !== userId);
+    this.setState({
+      listUsers: listUsersClone,
     });
   };
 
@@ -25,7 +33,10 @@ class MyComponent extends React.Component {
           <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
           <br />
           <br />
-          <DisplayInfor listUsers={this.state.listUsers} />
+          <DisplayInfor
+            listUsers={this.state.listUsers}
+            handleDeleteUser={this.handleDeleteUser}
+          />
         </div>
         <div className="b"></div>
       </>
