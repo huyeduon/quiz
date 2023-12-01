@@ -14,7 +14,7 @@ const ModalCreateUser = () => {
         Launch demo modal
       </Button>
 
-      <Modal show={show} onHide={handleClose} size="xl">
+      <Modal show={show} onHide={handleClose} size="xl" backdrop="static">
         <Modal.Header closeButton>
           <Modal.Title>Add new user</Modal.Title>
         </Modal.Header>
