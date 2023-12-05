@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FcPlus } from 'react-icons/fc';
-import { postCreateNewUser } from '../../../services/apiService';
+import { putUpdateUser } from '../../../services/apiService';
 import { toast } from 'react-toastify';
 import _ from 'lodash';
 
@@ -17,6 +17,7 @@ const ModalUpdateUser = props => {
     setImage('');
     setPreviewImage('');
     setShow(false);
+    props.resetUpdateData();
   };
 
   const [email, setEmail] = useState('');
@@ -48,12 +49,7 @@ const ModalUpdateUser = props => {
   };
 
   const handleSubmitCreateUser = async () => {
-    if (!password) {
-      toast.error('Invalid password');
-      return;
-    }
-
-    let data = await postCreateNewUser(email, password, username, role, image);
+    let data = await putUpdateUser(dataUpdate.id, username, role, image);
     if (data && data.EC === 0) {
       toast.success(data.EM);
       handleClose();
@@ -74,7 +70,7 @@ const ModalUpdateUser = props => {
         className="modal-add-user"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Update user</Modal.Title>
+          <Modal.Title>Update an user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-3">
