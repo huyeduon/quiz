@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { toast } from 'react-toastify';
 import _ from 'lodash';
 
 const ModalViewUser = props => {
