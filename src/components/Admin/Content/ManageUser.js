@@ -5,12 +5,16 @@ import { FcPlus } from 'react-icons/fc';
 import './ManageUser.scss';
 import TableUser from './TableUser';
 import ModalUpdateUser from './ModalUpdateUser';
+import ModalViewUser from './ModalViewUser';
 
 const ManageUser = props => {
   const [showModalCreateUser, setShowModalCreateUser] = useState(false);
   const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
+  const [showModalViewUser, setShowModalViewUser] = useState(false);
   const [dataUpdate, setDataUpdate] = useState({});
   const [listUsers, setListUsers] = useState([]);
+  const [dataView, setDataView] = useState({});
+
   useEffect(() => {
     fetchListUsers();
   }, []);
@@ -31,6 +35,15 @@ const ManageUser = props => {
     setDataUpdate({});
   };
 
+  const handleClickBtnView = user => {
+    setShowModalViewUser(true);
+    setDataView(user);
+  };
+
+  const resetViewData = () => {
+    setDataView({});
+  };
+
   return (
     <div className="manage-user-container">
       <div className="title">Manage User</div>
@@ -48,6 +61,7 @@ const ManageUser = props => {
           <TableUser
             listUsers={listUsers}
             handleClickBtnUpdate={handleClickBtnUpdate}
+            handleClickBtnView={handleClickBtnView}
           />
         </div>
         <ModalCreateUser
@@ -61,6 +75,12 @@ const ManageUser = props => {
           dataUpdate={dataUpdate}
           fetchListUsers={fetchListUsers}
           resetUpdateData={resetUpdateData}
+        />
+        <ModalViewUser
+          show={showModalViewUser}
+          setShow={setShowModalViewUser}
+          dataView={dataView}
+          resetViewData={resetViewData}
         />
       </div>
     </div>
