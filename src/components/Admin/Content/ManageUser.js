@@ -9,7 +9,7 @@ import ModalViewUser from './ModalViewUser';
 import ModalDeleteUser from './ModalDeleteUser';
 
 const ManageUser = props => {
-  const LIMIT_USER = 3;
+  const LIMIT_USER = 6;
   const [pageCount, setPageCount] = useState(0);
   const [showModalCreateUser, setShowModalCreateUser] = useState(false);
   const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);

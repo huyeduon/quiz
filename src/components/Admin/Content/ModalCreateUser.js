@@ -81,6 +81,7 @@ const ModalCreateUser = props => {
                 className="form-control"
                 value={email}
                 onChange={event => setEmail(event.target.value)}
+                autoComplete="email"
               />
             </div>
             <div className="col-md-6">
@@ -90,6 +91,7 @@ const ModalCreateUser = props => {
                 value={password}
                 className="form-control"
                 onChange={event => setPassword(event.target.value)}
+                autoComplete="current-password"
               />
             </div>
 
@@ -100,6 +102,7 @@ const ModalCreateUser = props => {
                 value={username}
                 className="form-control"
                 onChange={event => setUsername(event.target.value)}
+                autoComplete="username"
               />
             </div>
             <div className="col-md-4">
